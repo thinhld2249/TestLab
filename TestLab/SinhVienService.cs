@@ -10,6 +10,25 @@ namespace TestLab
     {
         private List<SinhVien> SVLst = new List<SinhVien>();
 
+        public int Menu()
+        {
+            Console.WriteLine("====MENU====");
+            Console.WriteLine("1.Nhập danh sách đối tượng");
+            Console.WriteLine("2.Xuất danh sách đối tượng");
+            Console.WriteLine("3.Xuất danh sách các sinh viên được tặng vé vip HappyBee");
+            Console.WriteLine("4.Xóa những sinh viên không được tham gia HappyBee nếu không được tặng");
+            Console.WriteLine("5.Kế thừa");
+            Console.WriteLine("0.Thoát");
+            Console.WriteLine("Xin mời chọn chức năng: ");
+            int chucNang = Convert.ToInt32(Console.ReadLine());
+            while (chucNang < 0 || chucNang > 5)
+            {
+                Console.WriteLine("Chức năng không hợp lệ!");
+                return Menu();
+            }
+            return chucNang;
+        }
+
         public void nhapDanhSach()
         {
             string checkMSV = "";
@@ -62,12 +81,12 @@ namespace TestLab
         public void xoaSvKhongThamgia()
         {
             DateTime year = DateTime.Now;
-            for (int i = SVLst.Count; i >=0 ; i--)
+            for (int i = SVLst.Count; i >= 0; i--)
             {
                 if (SVLst[i].Diem < 8 && (year.Year - SVLst[i].NamSinh) > 25)
                 {
                     SVLst.Remove(SVLst[i]);
-                   
+
                 }
             }
         }

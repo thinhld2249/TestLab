@@ -11,18 +11,20 @@ namespace TestLab
         int kiHoc;
         public SinhVienUD()
         {
-          
+
         }
-        public SinhVienUD(string maSinhVien ,string ten, int namSinh, double diem ,int kiHoc) : base(maSinhVien,ten,namSinh,diem)
+
+        public SinhVienUD(string maSinhVien, string ten, int namSinh, double diem, int kiHoc) : base(maSinhVien, ten, namSinh, diem)
         {
             this.kiHoc = kiHoc;
         }
+        public int KiHoc { get => kiHoc; set => kiHoc = value; }
 
         public override void inThongTin()
         {
             base.inThongTin();
             Console.WriteLine($"Kì học {kiHoc}");
         }
-        public int KiHoc { get => kiHoc; set => kiHoc = value; }
+
     }
 }

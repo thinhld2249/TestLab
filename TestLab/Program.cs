@@ -6,21 +6,11 @@
         {
             Console.InputEncoding = System.Text.Encoding.UTF8;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            int chucNang;
+
             SinhVienService sVService = new SinhVienService();
             do
             { 
-                
-                Console.WriteLine("====MENU====");
-                Console.WriteLine("1.Nhập danh sách đối tượng");
-                Console.WriteLine("2.Xuất danh sách đối tượng");
-                Console.WriteLine("3.Xuất danh sách các sinh viên được tặng vé vip HappyBee");
-                Console.WriteLine("4.Xóa những sinh viên không được tham gia HappyBee nếu không được tặng");
-                Console.WriteLine("5.Kế thừa");
-                Console.WriteLine("0.Thoát");
-                Console.WriteLine("Xin mời chọn chức năng: ");
-                 chucNang = Convert.ToInt32(Console.ReadLine());
-                switch (chucNang)
+                switch (sVService.Menu())
                 {
                     case 1:
                         {
@@ -60,9 +50,11 @@
                         }
                     case 0:
                         {
-                            Console.WriteLine("THOÁT");
+                            
                             Console.WriteLine("Nhấn phím bất kì để thoát!");
+                            Environment.Exit(0);
                             break;
+                            
                         }
                     default:
                         {
@@ -71,7 +63,7 @@
                         }
                 }
 
-            } while (chucNang != 0);
+            } while (true);
         }
     }
 }
